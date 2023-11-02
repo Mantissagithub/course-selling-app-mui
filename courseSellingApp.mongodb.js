@@ -82,6 +82,12 @@ app.post('/admin/login', async (req, res) => {
   }
 });
 
+app.get('/admin/me', authenticateJwt, (req, res) => {
+  res.json({
+    username: req.user.username
+  });
+});
+
 app.post('/admin/courses', authenticateJwt, async (req, res) => {
   const course = new Course(req.body);
   await course.save();
@@ -125,6 +131,12 @@ app.post('/users/login', async (req, res) => {
   } else {
     res.status(403).json({ message: 'Invalid username or password' });
   }
+});
+
+app.get('/users/me', authenticateJwt, (req, res) => {
+  res.json({
+    username: req.user.username
+  });
 });
 
 app.get('/users/courses', authenticateJwt, async (req, res) => {

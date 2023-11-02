@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import { LoginAppBar } from './CustomAppBar';
 
 function BuyCourse() {
   const [courseId, setCourseId] = useState("");
@@ -27,7 +28,9 @@ function BuyCourse() {
   }
 
   return (
-    <Container maxWidth="sm">
+    <div>
+      <LoginAppBar />
+      <Container maxWidth="sm">
       <Box textAlign="center" mt={4}>
         <Typography variant="h4">Buy a Course</Typography>
         <TextField
@@ -49,6 +52,7 @@ function BuyCourse() {
         {message && <Typography mt={2} color={message.includes("successfully") ? "success" : "error"}>{message}</Typography>}
       </Box>
     </Container>
+    </div>
   );
 }
 

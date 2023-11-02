@@ -11,6 +11,7 @@ import {
   MenuItem,
   Snackbar,
 } from '@mui/material';
+import { LoginAppBar } from './CustomAppBar';
 
 function ModifyCourse() {
   const [courseId, setCourseId] = useState('');
@@ -60,7 +61,9 @@ function ModifyCourse() {
   }, []);
 
   return (
-    <Container maxWidth="md">
+    <div>
+      <LoginAppBar />
+      <Container maxWidth="md">
       <Typography variant="h5" gutterBottom>
         Modify Course
       </Typography>
@@ -104,6 +107,7 @@ function ModifyCourse() {
         onClose={() => setMessage('')}
       />
     </Container>
+    </div>
   );
 }
 

@@ -1,10 +1,13 @@
 import React from "react";
 import { Container, Typography, Button, Box } from "@mui/material";
 import { Link } from "react-router-dom"; // Make sure you have React Router installed
+import { SignUpBar } from "./CustomAppBar";
 
 function Landing() {
     return (
-        <Container maxWidth="sm">
+        <div>
+            <SignUpBar />
+            <Container maxWidth="sm">
             <Box textAlign="center" mt={4}>
                 <Typography variant="h4">Welcome to the Course Selling Website!</Typography>
                 <Box mt={2}>
@@ -29,6 +32,7 @@ function Landing() {
                 </Box>
             </Box>
         </Container>
+        </div>
     );
 }
 

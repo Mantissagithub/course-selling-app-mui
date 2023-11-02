@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import {LoginAppBar} from './CustomAppBar';
 
 function CreateCourse() {
     const [title, setTitle] = React.useState("");
@@ -26,7 +27,9 @@ function CreateCourse() {
     }
 
     return (
-        <Container maxWidth="sm">
+        <div>
+            <LoginAppBar />
+            <Container maxWidth="sm">
             <Box textAlign="center" mt={4}>
                 <Typography variant="h4">Add a Course</Typography>
                 <TextField
@@ -63,6 +66,7 @@ function CreateCourse() {
                 )}
             </Box>
         </Container>
+        </div>
     );
 }
 

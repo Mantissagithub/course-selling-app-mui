@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Typography, Box, Paper, Grid } from '@mui/material';
+import { LoginAppBar } from './CustomAppBar';
+import { useNavigate } from 'react-router-dom';
 
 function ShowCourses() {
   const [courses, setCourses] = useState([]);
@@ -20,7 +22,9 @@ function ShowCourses() {
   }, []);
 
   return (
-    <Container maxWidth="md">
+    <div>
+      <LoginAppBar />
+      <Container maxWidth="md">
       <Typography variant="h4" align="center" mt={4}>Course Page</Typography>
       <Grid container spacing={2}>
         {courses.map(course => (
@@ -30,6 +34,7 @@ function ShowCourses() {
         ))}
       </Grid>
     </Container>
+    </div>
   );
 }
 

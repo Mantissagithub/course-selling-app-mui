@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Typography, Box, Grid, Paper } from '@mui/material';
+import { LoginAppBar } from './CustomAppBar';
 
 function PurchasedCourses() {
   const [purchasedCourses, setPurchasedCourses] = useState([]);
@@ -19,7 +20,9 @@ function PurchasedCourses() {
   }, []);
 
   return (
-    <Container maxWidth="md">
+    <div>
+      <LoginAppBar />
+      <Container maxWidth="md">
       <Typography variant="h4" align="center" mt={4}>Purchased Courses</Typography>
       <Grid container spacing={2}>
         {purchasedCourses.map(course => (
@@ -29,6 +32,7 @@ function PurchasedCourses() {
         ))}
       </Grid>
     </Container>
+    </div>
   );
 }
 

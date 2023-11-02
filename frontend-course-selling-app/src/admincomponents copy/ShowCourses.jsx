@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Typography, Grid } from "@mui/material";
+import {LoginAppBar} from './CustomAppBar';
 
 function ShowCourses() {
   const [courses, setCourses] = useState([]);
@@ -24,7 +25,9 @@ function ShowCourses() {
   }, []);
 
   return (
-    <Container maxWidth="md">
+    <div>
+      <LoginAppBar />
+      <Container maxWidth="md">
       <Typography variant="h4" align="center" gutterBottom>
         Course Page
       </Typography>
@@ -36,6 +39,7 @@ function ShowCourses() {
         ))}
       </Grid>
     </Container>
+    </div>
   );
 }
 

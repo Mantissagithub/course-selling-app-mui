@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Box, Link } from '@mui/material';
+import { SignUpBar } from './CustomAppBar';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -14,12 +17,15 @@ function Login() {
       const { token } = response.data;
       localStorage.setItem('token', token);
       setToken(token);
+      navigate('/courses');
     } catch (error) {
       console.error(error);
     }
   }
 
   return (
+    <div>
+      <SignUpBar />
     <Container maxWidth="sm">
       <Box textAlign="center" mt={4}>
         <Typography variant="h4">Login to Admin Dashboard</Typography>
@@ -56,6 +62,7 @@ function Login() {
         </Box>
       </Box>
     </Container>
+    </div>
   );
 }
 
