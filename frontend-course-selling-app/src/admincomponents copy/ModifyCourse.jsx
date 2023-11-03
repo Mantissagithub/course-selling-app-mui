@@ -12,12 +12,14 @@ import {
   Snackbar,
 } from '@mui/material';
 import { LoginAppBar } from './CustomAppBar';
+import {useNavigate} from 'react-router-dom';
 
 function ModifyCourse() {
   const [courseId, setCourseId] = useState('');
   const [newCourseData, setNewCourseData] = useState({});
   const [message, setMessage] = useState('');
   const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +44,7 @@ function ModifyCourse() {
       } else {
         setMessage('Error updating course');
       }
+      navigate('/courses');
     } catch (error) {
       setMessage('Network error. Please try again.');
     }
@@ -61,7 +64,8 @@ function ModifyCourse() {
   }, []);
 
   return (
-    <div>
+    <div style={{height:"100vh", width:"100vw"}}>
+      <center>
       <LoginAppBar />
       <Container maxWidth="md">
       <Typography variant="h5" gutterBottom>
@@ -92,9 +96,11 @@ function ModifyCourse() {
           name="description"
           onChange={handleInputChange}
         />
+        <center>
         <Button variant="contained" color="primary" type="submit">
           Modify Course
         </Button>
+        </center>
       </form>
       <Snackbar
         anchorOrigin={{
@@ -107,6 +113,7 @@ function ModifyCourse() {
         onClose={() => setMessage('')}
       />
     </Container>
+      </center>
     </div>
   );
 }

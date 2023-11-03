@@ -8,7 +8,7 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState(''); // Define token state
-  const navigate = UseNavigate();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -17,7 +17,7 @@ function Login() {
       const { token } = response.data;
       localStorage.setItem('token', token); // Assign the token from the response
       setToken(token); // Update the token state
-      navigate('/courses');
+      navigate('/landing');
     } catch (error) {
       console.error(error); // Use console.error instead of console.log for errors
     }

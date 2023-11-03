@@ -52,9 +52,14 @@ const LoginAppBar = () => {
           </Typography>
           {user && (
             <Typography variant="h6" style={{ color: 'white' }}>
-              Hello {user}
+              {user}
             </Typography>
           )}
+          <div>
+          <Button color="inherit" component={Link} to="/login">
+            Logout
+          </Button>
+          </div>
         </Toolbar>
       </AppBar>
     );

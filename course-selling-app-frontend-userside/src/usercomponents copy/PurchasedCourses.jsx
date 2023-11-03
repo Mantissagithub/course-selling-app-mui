@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Typography, Box, Grid, Paper } from '@mui/material';
+import { Container, Typography, Box, Grid, Paper, Button } from '@mui/material';
 import { LoginAppBar } from './CustomAppBar';
+import { Link } from "react-router-dom"; 
 
 function PurchasedCourses() {
   const [purchasedCourses, setPurchasedCourses] = useState([]);
@@ -31,6 +32,16 @@ function PurchasedCourses() {
           </Grid>
         ))}
       </Grid>
+      <center>
+      <Button
+          component={Link}
+          to="/courses"
+          variant="contained"
+          color="primary"
+          >
+          SHOW COURSES
+        </Button>
+      </center>
     </Container>
     </div>
   );

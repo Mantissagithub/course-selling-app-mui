@@ -2,12 +2,14 @@ import React from "react";
 import axios from 'axios';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
 import {LoginAppBar} from './CustomAppBar';
+import { useNavigate}  from "react-router-dom";
 
 function CreateCourse() {
     const [title, setTitle] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [message, setMessage] = React.useState(""); // Define message in the state
     const token = localStorage.getItem("token");
+    const navigate = useNavigate();
 
     const addCourse = async() => {
         try {
@@ -20,6 +22,7 @@ function CreateCourse() {
 
             // Assuming the API response contains a success message
             setMessage(response.data.message);
+            navigate('/courses');
         } catch (error) {
             // Handle error and set an error message
             setMessage("An error occurred while adding the course.");

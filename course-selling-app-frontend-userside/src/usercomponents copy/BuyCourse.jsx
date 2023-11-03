@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
 import { LoginAppBar } from './CustomAppBar';
+import {useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom"; 
 
 function BuyCourse() {
   const [courseId, setCourseId] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handlePurchase = async () => {
     const token = localStorage.getItem("token");
@@ -18,6 +21,7 @@ function BuyCourse() {
       });
       if (response.status === 200) {
         setMessage("Course purchased successfully");
+        navigate('/courses');
       } else {
         setMessage("Error purchasing course");
       }

@@ -17,7 +17,7 @@ function Login() {
       const { token } = response.data;
       localStorage.setItem('token', token);
       setToken(token);
-      navigate('/courses');
+      navigate('/landing');
     } catch (error) {
       console.error(error);
     }
